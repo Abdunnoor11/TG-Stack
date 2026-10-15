@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tg-stack"
+version = "1.0.0"
+description = "TG-Stack: a theory-guided stacking ensemble for explainable prediction of Generation Z social-commerce use behaviour"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+keywords = ["stacking ensemble", "theory-guided machine learning", "explainable AI", "social commerce", "TAM", "UTAUT", "SHAP"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+# Loose lower bounds for *using* the package. To reproduce the paper's numbers exactly,
+# install the pinned environment in requirements-paper.txt instead.
+dependencies = [
+    "numpy>=2.0",
+    "pandas>=2.2",
+    "scipy>=1.13",
+    "scikit-learn>=1.6",
+    "xgboost>=2.0",
+    "lightgbm>=4.3",
+    "catboost>=1.2",
+    "shap>=0.46",
+    "matplotlib>=3.8",
+    "pillow>=10",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-cov", "ruff", "build"]
+
+[project.scripts]
+tg-stack = "tg_stack.cli:main"
+
+[project.urls]
+Repository = "https://github.com/<your-username>/tg-stack"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = ["slow: slow tests (full model fits)", "paper: needs the real dataset (set TG_STACK_DATA)"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+src = ["src", "tests", "scripts"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501", "E741", "B905", "UP037"]

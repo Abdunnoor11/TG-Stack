@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the accompanying manuscript (see preferred-citation) and this repository."
+title: "TG-Stack: reproducible code for a theory-guided stacking ensemble"
+type: software
+version: 1.0.0
+date-released: "2026-10-16"
+license: MIT
+repository-code: "https://github.com/<your-username>/tg-stack"
+keywords:
+  - stacking ensemble
+  - theory-guided machine learning
+  - explainable AI
+  - social commerce
+  - technology acceptance model
+authors:
+  # TODO: replace with the final author list (given-names / family-names / orcid)
+  - name: "TG-Stack authors"
+preferred-citation:
+  type: article
+  title: "TG-Stack: A Theory-Guided Stacking Ensemble for Explainable Prediction of Generation Z Social-Commerce Use Behaviour"
+  status: in-preparation
+  year: 2026
+  authors:
+    - name: "TG-Stack authors"
